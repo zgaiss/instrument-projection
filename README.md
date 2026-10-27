@@ -110,6 +110,12 @@ $ADB install -r android/ICLock.apk
    原厂 receiver 会据此判 `instrument_busy` 而拒绝启动——这是原方案在本车型上的硬伤。
 5. **App 被回收后无法手动停止**：仪表侧程序独立倒计时，到点自动还原，期间只能等。
 
+## 参考项目与致谢
+
+感谢 [heavendoorx7](https://github.com/heavendoorx7) 在
+[OP-CarPlay](https://github.com/heavendoorx7/OP-CarPlay) 项目中分享的相关投屏思路，
+为本项目的仪表投屏研究提供了启发与参考。
+
 ## 许可
 
 仅供研究与学习。涉及第三方代码摘录（`src/`）的部分，版权归原作者所有，此处仅作技术分析用途。
