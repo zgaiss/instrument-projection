@@ -1,0 +1,21 @@
+# 仪表侧第三批：/dev/mem 可用性、Freescale 显示属性、30510 归属
+dd if=/dev/mem bs=1 skip=41156608 count=64 2>&1 | od -A n -t x1
+echo "[devmem done]"
+dd if=/dev/mem bs=1 skip=0 count=16 2>&1 | od -A n -t x1
+echo "[devmem0 done]"
+zcat /proc/config.gz 2>/dev/null | grep -iE "DEVMEM|STRICT|WATCHDOG" 
+echo "[cfg done]"
+cat /sys/class/graphics/fb1/fsl_disp_property 2>&1
+echo "[fsl done]"
+cat /sys/class/graphics/fb1/fsl_disp_dev_property 2>&1
+echo "[fsldev done]"
+cat /sys/class/graphics/fb1/state 2>&1
+echo "[state done]"
+cat /sys/class/graphics/fb1/blank 2>&1
+echo "[blank done]"
+cat /sys/class/graphics/fb0/blank 2>&1
+echo "[blank0 done]"
+netstat -lntp 2>/dev/null | grep -E "30510|30610|10113"
+echo "[port done]"
+dmesg | grep -iE "devmem|strict" | head -10
+echo "[dmesg done]"

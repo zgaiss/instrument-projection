@@ -1,0 +1,12 @@
+# 仪表侧第二批：显示寄存器、进程、监听端口（全部只读）
+ls -l /dev/mem
+dd if=/dev/mem bs=1 skip=41156608 count=64 2>/dev/null | od -A n -t x4
+cat /sys/class/graphics/fb1/name
+cat /sys/class/graphics/fb1/pan
+cat /sys/class/graphics/fb1/rotate
+ls /sys/class/graphics/fb1/
+ls /tmp/op-ultra-app-v61
+cat /proc/cmdline
+head -25 /proc/mounts
+ps
+netstat -ln 2>/dev/null | head -25

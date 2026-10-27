@@ -1,0 +1,21 @@
+# 仪表侧只读探查命令集（全部只读，不写任何文件）
+id
+uname -a
+cat /proc/cpuinfo | head -6
+ls /sys/class/graphics/
+cat /sys/class/graphics/fb1/modes
+cat /sys/class/graphics/fb1/mode
+cat /sys/class/graphics/fb1/virtual_size
+cat /sys/class/graphics/fb1/bits_per_pixel
+cat /sys/class/graphics/fb1/stride
+cat /sys/class/graphics/fb1/blank
+cat /sys/class/graphics/fb0/modes
+cat /sys/class/graphics/fb0/mode
+cat /sys/class/graphics/fb0/virtual_size
+cat /sys/class/graphics/fb0/bits_per_pixel
+cat /sys/class/graphics/fb0/stride
+cat /sys/class/graphics/fb0/blank
+ls -l /dev/fb0 /dev/fb1
+grep ' /tmp ' /proc/mounts
+df -h /tmp
+ls -l /tmp | head -20

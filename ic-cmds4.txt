@@ -1,0 +1,17 @@
+# 仪表侧第四批：/dev/mem 失败原因、内存映射、端口归属进程
+head -c 16 /dev/mem 2>&1 | od -A n -t x1
+echo "[head done]"
+dd if=/dev/mem bs=4096 skip=1024 count=1 2>&1 | od -A n -t x1
+echo "[ram4m done]"
+dd if=/dev/mem bs=4 skip=10289024 count=8 2>&1 | od -A n -t x4
+echo "[reg done]"
+cat /proc/iomem | head -40
+echo "[iomem done]"
+cat /proc/1140/cmdline | tr '\0' ' '
+echo "[1140 done]"
+cat /proc/1143/cmdline | tr '\0' ' '
+echo "[1143 done]"
+cat /proc/1145/cmdline | tr '\0' ' '
+echo "[1145 done]"
+ls -l /proc/1140/exe /proc/1143/exe /proc/1145/exe
+echo "[exe done]"

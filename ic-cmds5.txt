@@ -1,0 +1,18 @@
+# 仪表侧第五批：找能 mmap /dev/mem 的现成工具（devmem）
+which busybox
+busybox --list 2>/dev/null | grep -iE "devmem|hexdump|fdflush|freeramdisk"
+echo "[list done]"
+busybox devmem 2>&1 | head -5
+echo "[usage done]"
+busybox devmem 0x02740000 2>&1
+echo "[dm0 done]"
+busybox devmem 0x02740000 32 2>&1
+echo "[dm32 done]"
+busybox devmem 0x02740004 32 2>&1
+echo "[dm4 done]"
+busybox devmem 0x02740008 32 2>&1
+echo "[dm8 done]"
+busybox devmem 0x00000000 32 2>&1
+echo "[dmram done]"
+grep -iE "0274|ipu" /proc/iomem
+echo "[iomem done]"

@@ -1,0 +1,23 @@
+# ── 编译产物（由构建脚本重新生成，不入库）──
+android/build/iclock
+android/build/iclock_host
+android/assets/iclock
+mini/fbctl
+mini/v1/drawtest
+
+# ── 构建中间目录 ──
+android/out/
+*.class
+*.dex
+
+# ── 签名密钥：绝不入库 ──
+android/.keys/
+*.p12
+*.keystore
+*.jks
+
+# ── 探针运行输出（每次执行生成新目录）──
+probe-*/
+
+# ── 系统垃圾 ──
+.DS_Store
